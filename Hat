@@ -1,0 +1,219 @@
+'Hat'
+<< 
+  CLLCD
+  "       Welcome" 3 DISP .5 WAIT
+  "         to" 4 DISP .5 WAIT
+  "       Hogwarts" 5 DISP .5 WAIT
+
+  @ Play 1st part of Hedwigs Theme.
+  330 .25 BEEP
+  440 .5 BEEP
+  523 .125 BEEP
+  494 .125 BEEP
+  440 .5 BEEP
+  659 .25 BEEP
+  587 .75 BEEP
+  494 .5 BEEP
+  1 WAIT
+
+  CLLCD
+  "       Let the" 3 DISP .5 WAIT
+  "       sorting" 4 DISP .5 WAIT
+  "       begin..." 5 DISP 2 WAIT
+
+  @ Seed the pseudo rand generator with sysclock.
+  0 RDZ
+
+  @ Initialize values.
+  @ i = trait index, reset to zero when used.
+  @ m = moves
+  @ n = random number to select trait.
+  @ n1 = last question response.
+  @ n2 = last tie question response.
+  @ g = Gryfindor totals
+  @ h = Hufflepuff totals
+  @ r = Ravenclaw totals
+  @ s = Slytherin totals
+  @ w = winning house, or 0 if none.
+
+  { 1 1 1 1 1 1 1 1 1 1
+    1 1 1 1 1 1 1 1 1 1
+    1 1 1 1 1 1 1 1 1 1
+    1 1 1 1 1 1 1 1 1 1
+    1 1 1 1 1 1 1 1 1 1
+    1 1 1 1 1 1 1 1 1 1
+    1 1 1 1 1 1 1 1 1 1
+    1 1 1 1 1 1 1 1 1 1 }
+
+  0 0 0 0 0 0 0 0 0 -> i m n n1 n2 g h r s w
+  <<
+    DO 
+      @ Select a random trait, but don't repeat.
+      DO
+        RAND 80 * 1 + FLOOR 'n' STO
+      UNTIL i n GET END
+
+      @ Reset last trait, to avoid repeats.
+      i n 0 PUT 'i' STO
+
+      CLLCD
+      " Are you...
+      "
+
+      @ Select a random trait...
+
+      { animated adventurous         @ Gryfindor
+        bold brave
+        confident courteous
+        "a daredevil" energetic
+        enduring fearless
+        forceful "hard working"
+        heroic impulsive
+        intense "kind hearted"
+        "noble minded" "single minded"
+        "self possessed" unafraid
+
+        authentic affectionate       @ Hufflepuff
+        believable "a champion"
+        "a contributor" dedicated
+        dependable honest
+        humble kind
+        loyal methodical
+        modest organized
+        practical "a protector"
+        reliable socialble
+        sympathetic thrifty
+
+        adept artistic               @ Ravenclaw
+        brilliant cerebral
+        complex eccentric
+        efficient gifted
+        hypothetical innovative
+        intellectual mental
+        quizzical original
+        philisophical savy
+        unconvential talented
+        versatile "a visionary"
+
+        ambitious aspiring           @ Slytherin
+        cautious cryptic
+        desiring devious
+        expedient "goal oriented"
+        guarded hopeful
+        impassioned impenetrable
+        mysterious noncommittal
+        obscure opportunist
+        restrained spiritual
+        symbolic tricky }
+
+      n GET + "?" + 3 DISP
+      CLEAR
+
+      @ Build custom Yes/No menu.
+      @ If Yes is selected, add 1 point to that house.
+      { 
+        { "Yes" 
+          << 
+            { g h r s } 
+            n 1 - 20 / FLOOR 1 +
+            GET INCR
+            CONT
+          >>
+        }
+ 
+        { "No" << CONT >> }
+      } TMENU 3 FREEZE "" PROMPT
+
+      @ Play a random response, but don't repeat.
+      DO
+        RAND 7 * 1 + FLOOR 'n' STO
+      UNTIL n n1 <> END
+
+      @ Save last response.
+      n 'n1' STO
+
+      CLLCD
+      { " I know."
+        " Its all in your
+          head."
+        " Ok."
+        " Right."
+        " There's no doubt
+          about that."
+        " There's talent,
+          oh yes."
+        " You could be great." }
+      n GET
+      5 DISP 2 WAIT
+
+      @ Update moves counter.
+      'm' INCR
+
+      @ After 7 responses, check house totals.
+      IF m 6 >
+      THEN
+        @ Check which house has more points than the rest.
+        IF g h > g r > g s > AND AND THEN 1 'w' STO END
+        IF h g > h r > h s > AND AND THEN 2 'w' STO END
+        IF r g > r h > r s > AND AND THEN 3 'w' STO END
+        IF s g > s h > s r > AND AND THEN 4 'w' STO END
+
+        @ If there are no winner, perhaps a tie exists.
+        if w 0 == THEN
+          @ Play a random tie response, but don't repeat.
+          DO
+            RAND 3 * 1 + FLOOR 'n' STO
+          UNTIL n n2 <> END
+
+          @ Save last tie response.
+          n 'n2' STO
+
+          CLLCD
+          { " Are you sure..."
+            " But where to put
+              you?"
+            " Very difficult..." }
+          n GET
+          5 DISP 2 WAIT
+        END  
+      END
+
+    @ Keep playing until there's a winner.
+    UNTIL w END
+
+    @ Announce a house was found!
+    CLLCD 
+    { " You belong in..."
+      " Ah, right then."
+      " Better be..."
+      " I know what to
+        do with you!" }
+    RAND 4 * 1 + FLOOR GET
+    5 DISP 2 WAIT
+
+    @ Show the house you've been sorted into.
+    CLLCD 
+    { "      Hufflepuff"
+      "      Gryfindor"
+      "      Ravenclaw"
+      "      Slytherin" }
+    w GET "!" + 
+    4 DISP
+
+    @ Play 2nd part of Hedwigs Theme.
+    659 .25 BEEP
+    784 .5 BEEP
+    740 .25 BEEP
+    698 .5 BEEP
+    554 .25 BEEP
+    698 .5 BEEP
+    659 .125 BEEP
+    622 .125 BEEP
+    311 .5 BEEP
+    523 .25 BEEP
+    440 1.25 BEEP
+  >>
+
+  @ Clear the stack and remove custom menu.
+  CLEAR 2.01 MENU KILL
+>>
