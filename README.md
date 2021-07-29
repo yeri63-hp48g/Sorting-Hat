@@ -21,5 +21,5 @@ Some modifications were added, making the experience more entertaining, especial
 - Once a trait has been asked, it won't be asked again. Why should it be, since the hat already knows the answer?
 - Comments are given after each response, to reveal what the hat is thinking, and that some answers were quite obvious!
 - If any traits are confusing, not to worry. Just answer No and wait for the next question. There are many traits here.
-- Only traits which you confirmed with a Yes, are considered when determining the right house at the school of magic.
+- Only the traits which you confirmed with a Yes are considered, to determine which house to place you at the school of magic.
 - Have fun, and don't let on about the use of magic used to sort you. Just say it was just a clever program, nothing more.
