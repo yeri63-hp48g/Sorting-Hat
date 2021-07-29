@@ -132,18 +132,19 @@
       @ Save last response.
       n 'n1' STO
 
-      CLLCD
-      { " I know."
-        " Its all in your
+      CLLCD      
+      " "    
+      { "I know."
+        "It's all in your
           head."
-        " Ok."
-        " Right."
-        " There's no doubt
+        "Ok."
+        "Right."
+        "There's no doubt
           about that."
-        " There's talent,
+        "There's talent,
           oh yes."
-        " You could be great." }
-      n GET
+        "You could be great." }
+      n GET +
       5 DISP 2 WAIT
 
       @ Update moves counter.
@@ -169,11 +170,12 @@
           n 'n2' STO
 
           CLLCD
-          { " Are you sure..."
-            " But where to put
+          " "          
+          { "Are you sure..."
+            "But where to put
               you?"
-            " Very difficult..." }
-          n GET
+            "Very difficult..." }
+          n GET +
           5 DISP 2 WAIT
         END  
       END
@@ -182,22 +184,22 @@
     UNTIL w END
 
     @ Announce a house was found!
-    CLLCD 
-    { " You belong in..."
-      " Ah, right then."
-      " Better be..."
-      " I know what to
+    CLLCD
+    " "
+    { "You belong in..."
+      "Ah, right then."
+      "Better be..."
+      "I know what to
         do with you!" }
-    RAND 4 * 1 + FLOOR GET
+    RAND 4 * 1 + FLOOR GET +
     5 DISP 2 WAIT
 
     @ Show the house you've been sorted into.
     CLLCD 
-    { "      Hufflepuff"
-      "      Gryfindor"
-      "      Ravenclaw"
-      "      Slytherin" }
-    w GET "!" + 
+    "      "
+    { Hufflepuff Gryfindor
+      Ravenclaw Slytherin }
+    w GET + "!" + 
     4 DISP
 
     @ Play 2nd part of Hedwigs Theme.
