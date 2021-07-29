@@ -6,12 +6,12 @@ You've just received your invitation to the most famous school for witches and w
 
 Since we live in the Muggle world, the closest thing we have to magic at school is clever programming, so we'll need to rely on that bit of trickery to come up with a solution. The sorting hat is essentially a filter, used to place you into one of four houses, each with their own unique personallity traits. To maintain authenticity to the books and films, a visit was made to the author's website, locating the list of traits for each house.
 
-| House | Personality Traits |
-| ---------- | ---------------------------------------------- |
-| Gryffindor | courage, bravery, nerve, chivalry              |
-| Hufflepuff | hard work, patience, justice, loyalty          |
-| Ravenclaw  | intelligence, creativity, learning, wit        |
-| Slytherin  | ambition, cunning, leadership, resourcefulness |
+| House Colors | Personality Traits |
+| ------------- | ---------------------------------------------- |
+| red, gold     | courage, bravery, nerve, chivalry              |
+| yellow, black | hard work, patience, justice, loyalty          |
+| blue, bronze  | intelligence, creativity, learning, wit        |
+| green, silver | ambition, cunning, leadership, resourcefulness |
 
 The sorting process begins by asking asking if you match one of these traits, picked at random. If you do, a point is added to that house to mark that as a potential solution. This continues for the first seven questions, afterwhich, the house totals are checked after each question, to see which one has more points than the rest. Once that occurs, the hat will announce your chosen house, the one with the most points, magically coinciding with your personality type of course! 
 
