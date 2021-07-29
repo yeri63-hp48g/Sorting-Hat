@@ -13,7 +13,7 @@ Since we live in the Muggle world, the closest thing we have to magic at school 
 | Ravenclaw  | intelligence, creativity, learning, wit        |
 | Slytherin  | ambition, cunning, leadership, resourcefulness |
 
-The sorting process begins by asking asking if you match one of these traits, picked at random. If you do, a point is added to that house to mark that as a potential solution. This continues for the first five questions, afterwhich, the house totals are checked after each question, to see which one has more points than the rest. Once that occurs, the hat will announce your chosen house, the one with the most points, magically coinciding with your personality type of course! 
+The sorting process begins by asking asking if you match one of these traits, picked at random. If you do, a point is added to that house to mark that as a potential solution. This continues for the first seven questions, afterwhich, the house totals are checked after each question, to see which one has more points than the rest. Once that occurs, the hat will announce your chosen house, the one with the most points, magically coinciding with your personality type of course! 
 
 Some modifications were added, making the experience more entertaining, especially if used during a party where many are present, anxiously waiting to determine their own house membership.
 
