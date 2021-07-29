@@ -1,4 +1,4 @@
-# The-Sorting-Hat
+# The Sorting Hat
 
 ![Screenshot of The Sorting Hat](https://github.com/yeri63-hp48g/The-Sorting-Hat/raw/main/Hat.png)
 
