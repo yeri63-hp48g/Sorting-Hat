@@ -57,6 +57,7 @@
       i n 0 PUT 'i' STO
 
       CLLCD
+      1 FREEZE
       " Are you...
       "
 
@@ -111,18 +112,31 @@
 
       @ Build custom Yes/No menu.
       @ If Yes is selected, add 1 point to that house.
-      { 
-        { "Yes" 
-          << 
+      {{ "Yes" }{ "No" }{ }{ }{ }
+       { "Quit" << CLEAR 2.01 MENU KILL >> }
+      } TMENU
+
+      @ Get user response. Ignore all other keys.
+      DO
+        -1 WAIT 'k' STO
+        CASE 
+          k 11.1 == THEN
             { g h r s } 
             n 1 - 20 / FLOOR 1 +
-            GET INCR
-            CONT
-          >>
-        }
- 
-        { "No" << CONT >> }
-      } TMENU 3 FREEZE "" PROMPT
+            GET INCR 
+          END
+        
+          k 12.1 == THEN END
+        
+          k 16.1 == THEN
+            CLEAR
+            2.01 MENU
+            KILL
+          END
+        
+          0 'k' STO
+        END
+      UNTIL k 0 >
 
       @ Play a random response, but don't repeat.
       DO
