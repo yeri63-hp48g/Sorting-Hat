@@ -45,7 +45,7 @@
     1 1 1 1 1 1 1 1 1 1
     1 1 1 1 1 1 1 1 1 1 }
 
-  0 0 0 0 0 0 0 0 0 -> i m n n1 n2 g h r s w
+  0 0 0 0 0 0 0 0 0 0 -> i k m n n1 n2 g h r s w
   <<
     DO 
       @ Select a random trait, but don't repeat.
@@ -136,7 +136,7 @@
         
           0 'k' STO
         END
-      UNTIL k 0 >
+      UNTIL k 0 > END
 
       @ Play a random response, but don't repeat.
       DO
